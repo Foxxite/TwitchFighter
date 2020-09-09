@@ -1,0 +1,39 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Twitch Fighter</title>
+
+		<link rel="stylesheet" href="assets/fonts/fonts.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<script src="assets/js/twitchinfo.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Twitch Fighter</h1>
+
+			<p>Add an interactive retro style Fighter picker poll to your stream.</p>
+
+			<hr />
+
+			<a href="#" class="btn" id="login">Login With Twitch</a>
+		</div>
+
+		<script>
+			let loginBtn = document.getElementById("login");
+
+			let twitchUrl =
+				"https://id.twitch.tv/oauth2/authorize?force_verify=true&response_type=token&client_id=" +
+				TwitchInfo.clientId +
+				"&scope=" +
+				TwitchInfo.scope +
+				"&redirect_uri=" +
+				TwitchInfo.authUrl;
+			loginBtn.href = twitchUrl;
+		</script>
+	</body>
+</html>

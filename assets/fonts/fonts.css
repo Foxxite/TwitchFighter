@@ -1,0 +1,20 @@
+@font-face {
+    font-family: '8BIT WONDER';
+    src: local('8BIT WONDER Nominal'), local('8BITWONDERNominal'),
+        url('8BITWONDERNominal.woff2') format('woff2'),
+        url('8BITWONDERNominal.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: '16bit';
+    src: local('16bit'),
+        url('16bit.woff2') format('woff2'),
+        url('16bit.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
