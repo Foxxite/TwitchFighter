@@ -2,6 +2,7 @@
 
 body {
 	overflow: hidden;
+	margin: 0;
 }
 
 h1 {
@@ -14,6 +15,30 @@ h2 {
 
 h3 {
 	font-size: 2.5rem;
+}
+
+h4 {
+	font-size: 2rem;
+}
+
+h5 {
+	font-size: 1.8rem;
+}
+
+h6 {
+	font-size: 1.5rem;
+}
+
+p {
+	font-size: 1.2rem;
+}
+
+.watermark {
+	position: fixed;
+	bottom: 0px;
+	left: 15px;
+
+	color: rgb(73, 73, 73);
 }
 
 .title {
@@ -46,6 +71,88 @@ h3 {
 
 		color: yellow;
 	}
+
+	.unselected {
+		display: none;
+	}
+}
+
+.selection {
+	display: none;
+	margin: 5vh auto;
+
+	text-align: center;
+
+	h6 {
+		margin-bottom: 10px;
+	}
+
+	h3 {
+		margin-top: 0px;
+	}
+
+	.grid-container {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: 2rem 1fr 2rem;
+		gap: 1px 1px;
+		grid-template-areas:
+			". . . ."
+			"Char1 Char2 Char3 Char4"
+			". . . .";
+
+		h5,
+		h6 {
+			margin-top: 5px;
+			margin-bottom: 5px;
+
+			align-self: baseline;
+		}
+	}
+
+	.charslot {
+		width: 100%;
+		padding-top: 100%; /* 1:1 Aspect Ratio */
+		position: relative; /* If you want text inside of it */
+	}
+
+	#char1 {
+		grid-area: Char1;
+		background-color: rgb(245, 245, 0);
+	}
+
+	#char2 {
+		grid-area: Char2;
+		background-color: rgb(0, 162, 245);
+	}
+
+	#char3 {
+		grid-area: Char3;
+		background-color: rgb(245, 0, 0);
+	}
+
+	#char4 {
+		grid-area: Char4;
+		background-color: rgb(0, 245, 0);
+	}
+}
+
+.flash {
+	display: none;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	z-index: 99999;
+
+	background-color: white;
+}
+
+.grayscale {
+	filter: grayscale(1);
 }
 
 /*
@@ -54,11 +161,11 @@ h3 {
 *
 */
 
-.flash {
-	animation: flash 0.7s steps(5, start) infinite;
+.blink {
+	animation: blink 0.5s steps(5, start) infinite;
 }
 
-@keyframes flash {
+@keyframes blink {
 	to {
 		visibility: hidden;
 	}

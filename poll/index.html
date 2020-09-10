@@ -13,6 +13,8 @@
 		<link rel="stylesheet" href="../assets/css/poll.css" />
 	</head>
 	<body>
+		<div class="flash"></div>
+
 		<div class="title">
 			<div id="header">
 				<h1>Twitch</h1>
@@ -20,14 +22,40 @@
 			</div>
 
 			<div id="start">
-				<h3 class="flash">PRESS START</h3>
+				<h3 class="blink">PRESS START</h3>
 			</div>
 
 			<div id="players">
-				<p><span class="selected">*</span> 1 PLAYERS</p>
-				<p><span></span> 2 PLAYERS</p>
+				<p id="player1"><span class="selected">*</span> 1 PLAYERS</p>
+				<p><span class="unselected">*</span> 2 PLAYERS</p>
 			</div>
 		</div>
+
+		<div class="selection">
+			<h6>Time left: <span id="time">60</span></h6>
+			<h3 class="blink">Select your fighter</h3>
+
+			<div class="grid-container">
+				<h6>1</h6>
+				<h6>2</h6>
+				<h6>3</h6>
+				<h6>4</h6>
+
+				<div class="charslot grayscale" id="char1"></div>
+				<div class="charslot grayscale" id="char2"></div>
+				<div class="charslot grayscale" id="char3"></div>
+				<div class="charslot grayscale" id="char4"></div>
+
+				<h5 id="char1_name">John Doe</h5>
+				<h5 id="char2_name">James Smith</h5>
+				<h5 id="char3_name">Ryan Ben</h5>
+				<h5 id="char4_name">Steef Oak</h5>
+			</div>
+
+			<p>Type in chat (the number) who you want to see!</p>
+		</div>
+
+		<p class="watermark">By Foxxite</p>
 
 		<script src="pollAnim.js"></script>
 	</body>
