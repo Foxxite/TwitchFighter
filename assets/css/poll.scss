@@ -95,11 +95,14 @@ p {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: 2rem 1fr 2rem;
-		gap: 1px 1px;
+		gap: 5px 5px;
 		grid-template-areas:
 			". . . ."
 			"Char1 Char2 Char3 Char4"
 			". . . .";
+
+		margin: auto;
+		width: 90vw;
 
 		h5,
 		h6 {
