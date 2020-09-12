@@ -51,6 +51,8 @@ function processResponse(response) {
 
 	xhr.onload = function () {
 		if (this.responseText == "OK") {
+			document.cookie = "twitchAuth=" + btoa(authResponse.access_token + "=" + response.id);
+
 			document.location.replace("./settings?id=" + response.id);
 		} else {
 			alert("Something went wrong, please report the error to Foxxite.");

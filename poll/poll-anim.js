@@ -12,16 +12,34 @@ let select3 = new Audio("../assets/audio/select_screen3.ogg");
 let select4 = new Audio("../assets/audio/select_screen4.ogg");
 let impactEffect = new Audio("../assets/audio/impact02.ogg");
 
-let awaitAudio = setInterval(function () {
-	if (backgroundMusic.readyState == 4) {
-		startMusic();
-	}
-}, 150);
+function startPoll(_userData) {
+	// Set all audio clips to right volume
+	let volume = userData.userInfo.volume;
+
+	backgroundMusic.volume = volume;
+	backgroundMusic.loop = true;
+
+	swishEffect.volume = volume;
+	dingEffect.volume = volume;
+	jumpEffect.volume = volume;
+	select1.volume = volume;
+	select2.volume = volume;
+	select3.volume = volume;
+	select4.volume = volume;
+	impactEffect.volume = volume;
+
+	// Await audio to be loaded...
+
+	awaitAudio = setInterval(function () {
+		if (backgroundMusic.readyState == 4) {
+			startMusic();
+		}
+	}, 150);
+}
 
 async function startMusic() {
 	try {
 		await backgroundMusic.play();
-		backgroundMusic.loop = true;
 		startAnims();
 	} catch (err) {
 		alert("Audio is used for timing, please allow auto play for audio and reload");
@@ -80,6 +98,8 @@ function playerSelector() {
 
 			impactEffect.play();
 			flash();
+
+			authTwitch(userData);
 
 			let selection = document.getElementsByClassName("selection")[0];
 			selection.style.display = "block";

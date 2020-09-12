@@ -1,0 +1,110 @@
+/** @format */
+
+body {
+	text-align: center;
+}
+
+#accInfo {
+	display: flex;
+	justify-content: center;
+
+	img {
+		height: 64px;
+	}
+}
+
+input {
+	background-color: #000b20;
+	border: none;
+	padding: 5px;
+}
+
+form {
+	margin: auto;
+	width: 60vw;
+
+	text-align: center;
+
+	.form-group {
+		margin-bottom: 1rem;
+	}
+
+	#saveBTN {
+		background-color: #058d00;
+		border: none;
+		padding: 15px;
+		font-size: 2rem;
+
+		cursor: pointer;
+		transition: all 0.2s ease;
+
+		&:hover {
+			background-color: #008d4b;
+			transform: scale(1.05);
+		}
+	}
+}
+
+#poll-preview {
+	margin: auto;
+	padding: 10px;
+	width: 90vw;
+	min-height: 150px;
+
+	background-color: #141414;
+	border: thin dashed white;
+
+	.grid-container {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: 2rem 1fr 2rem;
+		gap: 15px 15px;
+		grid-template-areas:
+			". . . ."
+			"Char1 Char2 Char3 Char4"
+			". . . .";
+
+		margin: auto;
+		width: auto;
+
+		h5,
+		h6 {
+			margin-top: 5px;
+			margin-bottom: 5px;
+
+			align-self: baseline;
+		}
+	}
+
+	.charslot {
+		width: 100%;
+		min-height: 125px;
+		//padding-top: 100%; /* 1:1 Aspect Ratio */
+		position: relative; /* If you want text inside of it */
+
+		img {
+			max-width: 100%;
+			image-rendering: pixelated;
+		}
+	}
+
+	#char1 {
+		grid-area: Char1;
+		background-color: rgb(245, 245, 0);
+	}
+
+	#char2 {
+		grid-area: Char2;
+		background-color: rgb(0, 162, 245);
+	}
+
+	#char3 {
+		grid-area: Char3;
+		background-color: rgb(245, 0, 0);
+	}
+
+	#char4 {
+		grid-area: Char4;
+		background-color: rgb(0, 245, 0);
+	}
+}

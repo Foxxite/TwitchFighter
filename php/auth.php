@@ -19,48 +19,31 @@
         }
         else
         {
-            $addUserQuery = "INSERT INTO `twitch_users` (`id`, `username`, `displayname`, `image`) VALUES ($id, '$username', '$displayName', '$image');";
+
+            $currDate =  date('Y-m-d');
+
+            $addUserQuery = "INSERT INTO `twitch_users` (`id`, `username`, `displayname`, `image`, `license`) VALUES ($id, '$username', '$displayName', '$image', '$currDate');";
 
             $addResult = mysqli_query($mysqli, $addUserQuery);
 
             if($addResult)
             {
+                for($i = 0; $i < 4; $i++)
+                {
+                    $addCharQuery = "INSERT INTO `twitch_data` (`userid`, `slot`) VALUES ($id, $i)";
+                    mysqli_query($mysqli, $addCharQuery);
+                }
+
                 echo "OK";
             }
             else
             {
-                dbError($mysqli, $userSelectQuery);
+                echo dbError($mysqli, $userSelectQuery);
             }
         }
     }
     else
     {
-        dbError($mysqli, $userSelectQuery);
+        echo dbError($mysqli, $userSelectQuery);
     }
 ?>
-
-
-CREATE TABLE `twitch_users` (
-	`id` BIGINT(20) NOT NULL DEFAULT '0',
-	`username` VARCHAR(30) NOT NULL DEFAULT '',
-	`displayname` VARCHAR(30) NOT NULL DEFAULT '',
-	`image` VARCHAR(255) NOT NULL DEFAULT '',
-	PRIMARY KEY (`id`)
-)
-COLLATE='latin1_swedish_ci'
-ENGINE=MyISAM
-;
-
-
-
-CREATE TABLE `twitch_data` (
-	`id` BIGINT(20) NOT NULL AUTO_INCREMENT,
-	`userId` BIGINT(20) NULL DEFAULT '0',
-	`slot` ENUM('0','1','2','3') NOT NULL DEFAULT '0',
-	`name` VARCHAR(30) NOT NULL DEFAULT '0',
-	`image` VARCHAR(255) NOT NULL DEFAULT '0',
-	PRIMARY KEY (`id`)
-)
-COLLATE='latin1_swedish_ci'
-ENGINE=MyISAM
-;
